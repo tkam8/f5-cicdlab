@@ -11,7 +11,8 @@ module "aws_f5_standalone" {
   f5_subnet1_id     = "${module.aws_vpc.public_subnet1_id}"
   key_name          = "${module.aws_vpc.key_name}"
   owner             = "${var.owner}-${var.project_name}"
-  AllowedIPs        = "${var.AllowedIPs}"
+  AllowedIPs1       = "${var.AllowedIPs1}"
+  AllowedIPs2       = "${var.AllowedIPs2}"
   AS3_URL           = "${var.AS3_URL}"
   DO_URL            = "${var.DO_URL}"
   f5_instance_type  = "${var.f5_instance_type}"
@@ -38,8 +39,9 @@ module "aws_ubuntu_systems" {
   private_subnet1_cidr  = "${module.aws_vpc.private_subnet1_cidr}"
   private_subnet2_cidr  = "${module.aws_vpc.private_subnet2_cidr}"
   key_name              = "${module.aws_vpc.key_name}"
-  vpc_id                =  "${module.aws_vpc.vpc_default_id}"
-  AllowedIPs            = "${var.AllowedIPs}"
+  vpc_id                = "${module.aws_vpc.vpc_default_id}"
+  AllowedIPs1           = "${var.AllowedIPs1}"
+  AllowedIPs2           = "${var.AllowedIPs2}"
   app_tag_value         = "${var.app_tag_value}"
 }
 

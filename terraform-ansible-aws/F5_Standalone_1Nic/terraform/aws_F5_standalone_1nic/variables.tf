@@ -10,7 +10,10 @@ variable "f5_subnet1_id" {
 variable "key_name" {
   type = "string"
 }
-variable "AllowedIPs" {
+variable "AllowedIPs1" {
+  type = "string"
+}
+variable "AllowedIPs2" {
   type = "string"
 }
 

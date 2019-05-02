@@ -38,7 +38,10 @@ output f5_public_ip {
 output f5_private_ip {
   value = "${module.aws_f5_standalone.f5_private_ip}"
 }
-output "allowed_ips" {
-  value = "${var.AllowedIPs}"
+output "allowed_ips1" {
+  value = "${var.AllowedIPs1}"
+}
+output "allowed_ips2" {
+  value = "${var.AllowedIPs2}"
 }
 

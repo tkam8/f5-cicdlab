@@ -28,9 +28,14 @@ variable "key_path" {
   default = "/var/tmp/terry_cicd1.pub"
 }
 
-variable "AllowedIPs" {
-    description = "Public IPs used to access your instances"
-    default = "210.226.41.200/29"
+variable "AllowedIPs1" {
+  description = "Public IPs used to access your instances"
+  default = "210.226.41.200/29"
+}
+
+variable "AllowedIPs2" {
+  description = "Public IPs used to access your instances"
+  default = "3.112.24.99/32"         
 }
 
 ## Please check and update the latest DO URL from https://github.com/F5Networks/f5-declarative-onboarding/releases
@@ -39,7 +44,7 @@ variable DO_URL	{
 }
 
 ## Please check and update the latest AS3 URL from https://github.com/F5Networks/f5-appsvcs-extension/releases/latest 
-variable AS3_URL { 
+variable AS3_URL {
   default = "https://github.com/F5Networks/f5-appsvcs-extension/releases/download/v3.10.0/f5-appsvcs-3.10.0-5.noarch.rpm" 
 }
 

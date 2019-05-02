@@ -13,15 +13,15 @@ pipeline {
         stage('AWS') {
             steps {
                 echo 'Here is for AWS!!'
-//		sh 'ansible-playbook /var/lib/jenkins/workspace/SelfService/SelfService/AWS/create_ec2_dns.yml --vault-password-file=/var/lib/jenkins/workspace/SelfService/SelfService/AWS/aws_keys.yml'
+		sh 'ansible-playbook /var/lib/jenkins/workspace/SelfService/SelfService/AWS/create_ec2_dns.yml --vault-password-file=/var/lib/jenkins/workspace/SelfService/SelfService/AWS/aws_keys.yml'
             }
         }
-        stage('Azure') {
-            steps {
-                echo 'Here is an Azure!!'
+//        stage('Azure') {
+//            steps {
+//                echo 'Here is an Azure!!'
 //		sh 'ansible-playbook /var/lib/jenkins/workspace/SelfService/SelfService/Azure/stepbystep/create_all.f5.yml'
-            }
-        }
+//            }
+//        }
 //        stage('On-Prem') {
 //            steps {
 //                echo 'Deploying!!!!'

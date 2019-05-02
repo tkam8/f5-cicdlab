@@ -25,7 +25,10 @@ variable "key_name" {
 variable "vpc_id" {
   type = "string"
 }
-variable "AllowedIPs" {
+variable "AllowedIPs1" {
+  type = "string"
+}
+variable "AllowedIPs2" {
   type = "string"
 }
 
