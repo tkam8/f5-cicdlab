@@ -30,6 +30,7 @@ pipeline {
                       inventory: '/home/ubuntu/tfansible/f5-cicdlab/terraform-ansible-aws/F5_Standalone_1Nic/ansible/playbooks/inventory/hosts',
                       credentialsId: 'ansiblevaultpasswd'
                   )
+              }
           }
 //        stage('AWS') {
 //            steps {
