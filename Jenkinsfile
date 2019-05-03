@@ -19,7 +19,7 @@ pipeline {
           stage('Applying terraform') {
               steps {
                   echo 'Running Terraform apply'
-                  sh 'sudo terraform apply -input=false -auto-approve'
+                  sh 'terraform apply -input=false -auto-approve'
               }
           }
           stage('Ansible Playbook1') {
