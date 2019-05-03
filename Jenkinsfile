@@ -13,13 +13,13 @@ pipeline {
           stage('Initializing terraform') {
               steps {
                   echo 'Running Terraform init'
-                  sh 'terraform init -input=false'
+                  sh 'sudo terraform init -input=false'
               }
           }
           stage('Applying terraform') {
               steps {
                   echo 'Running Terraform apply'
-                  sh 'terraform apply -input=false -auto-approve'
+                  sh 'sudo terraform apply -input=false -auto-approve'
               }
           }
           stage('Ansible Playbook1') {
