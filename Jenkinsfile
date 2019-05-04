@@ -3,7 +3,10 @@
 
 pipeline {
     agent any
-
+    tools {
+        terraform
+        ansible
+    }
     stages {
         stage('Init') {
             steps {
