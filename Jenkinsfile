@@ -13,6 +13,7 @@ pipeline {
           stage('Initializing terraform') {
               steps {
                   echo 'Running Terraform init'
+                  echo 'PATH : ${env.PATH}'
                   sh 'sudo terraform init -input=false'
               }
           }
