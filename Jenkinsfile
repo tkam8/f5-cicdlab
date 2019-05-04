@@ -4,8 +4,8 @@
 pipeline {
     agent any
     tools {
-        terraform
-        ansible
+        terraform "0.11.13"
+        ansible "2.7.10"
     }
     stages {
         stage('Init') {
