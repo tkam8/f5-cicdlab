@@ -4,10 +4,6 @@
 pipeline {
     agent any
 
-    environment {
-        PATH         = "/bin/terraform:$PATH"
-        AWS_PROFILE  = "f5jptest"
-    }
 //    tools {
 //        org.jenkinsci.plugins.terraform.TerraformInstallation "0.11.13"
 //        org.jenkinsci.plugins.ansible.AnsibleInstallation "2.7.10"
@@ -22,7 +18,7 @@ pipeline {
               steps {
                   echo 'Running Terraform init'
                   echo "PATH : ${env.PATH}"
-                  sh 'sudo terraform init -input=false'
+                  sh 'terraform init -input=false'
               }
           }
           stage('Applying terraform') {
