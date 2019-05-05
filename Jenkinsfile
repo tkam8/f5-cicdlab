@@ -30,7 +30,7 @@ pipeline {
                       dir("terraform-ansible-aws/F5_Standalone_1Nic/terraform") {
                           echo 'Running Terraform apply'
                         //  sh 'terraform apply -input=false -auto-approve'
-                        //  sh 'terraform destroy -force'
+                          sh 'terraform destroy -force'
                       }
                    }
               }
