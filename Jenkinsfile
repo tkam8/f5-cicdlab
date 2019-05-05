@@ -18,13 +18,13 @@ pipeline {
               steps {
                   echo 'Running Terraform init'
                   echo "PATH : ${env.PATH}"
-                  sh 'terraform init -input=false'
+                  sh 'terraform-ansible-aws/F5_Standalone_1Nic/terraform/terraform init -input=false'
               }
           }
           stage('Applying terraform') {
               steps {
                   echo 'Running Terraform apply'
-                  sh 'terraform apply -input=false -auto-approve'
+                  sh 'terraform-ansible-aws/F5_Standalone_1Nic/terraform/terraform apply -input=false -auto-approve'
               }
           }
           stage('Ansible Playbook1') {
