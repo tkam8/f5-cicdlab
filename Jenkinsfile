@@ -15,18 +15,18 @@ pipeline {
             }
         }
           stage('Initializing terraform') {
-              dir("terraform-ansible-aws/F5_Standalone_1Nic/terraform") {
-                  steps {
+              steps {
+                  dir("terraform-ansible-aws/F5_Standalone_1Nic/terraform") {
                       echo 'Running Terraform init'
                       echo "sh pwd"
                       echo "PATH : ${env.PATH}"
                       sh 'terraform init -input=false'
                   }
-              }
-          }
+               }
+           }
           stage('Applying terraform') {
-              dir("terraform-ansible-aws/F5_Standalone_1Nic/terraform") {
-                  steps {
+              steps {
+                  dir("terraform-ansible-aws/F5_Standalone_1Nic/terraform") {
                       echo 'Running Terraform apply'
                       sh 'terraform apply -input=false -auto-approve'
                   }
