@@ -26,10 +26,12 @@ pipeline {
            }
           stage('Applying terraform') {
               steps {
-                  dir("terraform-ansible-aws/F5_Standalone_1Nic/terraform") {
-                      echo 'Running Terraform apply'
-                      sh 'terraform apply -input=false -auto-approve'
-                  }
+                  withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'awscreds', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+                      dir("terraform-ansible-aws/F5_Standalone_1Nic/terraform") {
+                          echo 'Running Terraform apply'
+                          sh 'terraform apply -input=false -auto-approve'
+                      }
+                   }
               }
           }
           stage('Ansible Playbook1') {
