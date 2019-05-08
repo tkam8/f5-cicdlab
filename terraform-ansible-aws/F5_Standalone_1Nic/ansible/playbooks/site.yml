@@ -6,7 +6,7 @@
   become_method: sudo
   connection: ssh
   gather_facts: true
- 
+  private_key_file: "{{ SSH_KEY_PATH }}"
   roles: 
     - ubuntu_initialize
 
