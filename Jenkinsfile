@@ -51,7 +51,7 @@ pipeline {
         always {
 	    /* Use slackNotifier.groovy from shared library and provide current build result as parameter */   
             // slackNotifier(currentBuild.currentResult)
-            slackSend(message="Completed terraform build and Ansible")
+            slackSend (color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
             // cleanWs()
         }
     }
