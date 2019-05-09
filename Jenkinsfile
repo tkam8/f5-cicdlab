@@ -55,5 +55,5 @@ pipeline {
              slackNotifier(currentBuild.currentResult)
              cleanWs()
          }
-     }
  }
+
