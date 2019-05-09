@@ -50,8 +50,9 @@ pipeline {
     post {
         always {
 	    /* Use slackNotifier.groovy from shared library and provide current build result as parameter */   
-             slackNotifier(currentBuild.currentResult)
-             cleanWs()
+            // slackNotifier(currentBuild.currentResult)
+            slackSend(message="Completed terraform build and Ansible")
+            // cleanWs()
         }
     }
 }
