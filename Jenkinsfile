@@ -37,7 +37,7 @@ pipeline {
           }
           stage('Ansible Playbook1') {
               steps {
-                  echo 'Running ansible playbook plugin'
+                  echo 'Running ansible playbook plugin verbose'
                   ansiblePlaybook(
                       playbook: '/var/lib/jenkins/workspace/terry-pipeline1/terraform-ansible-aws/F5_Standalone_1Nic/ansible/playbooks/site.yml',
                       inventory: '/var/lib/jenkins/workspace/terry-pipeline1/terraform-ansible-aws/F5_Standalone_1Nic/ansible/playbooks/inventory/hosts',
