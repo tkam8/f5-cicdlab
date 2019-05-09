@@ -48,11 +48,11 @@ pipeline {
         }
     }
     post {
-        always {
-	    /* Use slackNotifier.groovy from shared library and provide current build result as parameter */   
-            // slackNotifier(currentBuild.currentResult)
-            slackSend (color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
-            // cleanWs()
+        success {
+            slackSend (color: '#00FF00', message: "SUCCESS! _Grab a beer_: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+        }
+        failure {
+            slackSend (color: '#FF0000', message: "FAILED! _Practice makes perfect_: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})") 
         }
     }
 }
