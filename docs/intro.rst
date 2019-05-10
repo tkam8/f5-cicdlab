@@ -22,6 +22,8 @@ Overall steps
 - Fork f5-cicdlab blueprint repository
     - make modifications to customize for your environment
 
+|mod-1-1|
+
 Requirements
 -------------------
 - Active AWS account with admin permissions
@@ -44,3 +46,6 @@ Bugs and Requests for enhancements are handled in two ways:
 - Open an
   `Issue <https://github.com/tkam8/f5-cicdlab/issues>`_ within
   the repository.
+
+
+  .. |mod-1-1| image:: images/mod-1-1.png
