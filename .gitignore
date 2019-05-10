@@ -4,3 +4,6 @@ terraform.tfstate*
 *.json
 site.retry
 empty
+pdf/*
+_build
+python*
