@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Init') {
             steps {
-                echo 'Initializing!!!'
+                echo 'Initializing!!'
             }
         }
         stage('Initializing terraform') {
