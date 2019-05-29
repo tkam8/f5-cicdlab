@@ -1,10 +1,16 @@
 ---
 #Allow time for instance to boot
 
-- name: Wait 900 seconds, but only start checking after 60 seconds
-  wait_for_connection:
+- name: Wait for BIG-IP to be ready, don't start checking for 60 seconds
+  bigip_wait:
     delay: 60
-    timeout: 900
+    provider:
+      server: "{{ inventory_hostname }}"      
+      ssh_keyfile: "{{ ansible_ssh_private_key_file }}"
+      transport: cli
+      user: admin
+    validate_certs: no
+  delegate_to: localhost
 
 - name: Set BIG-IP admin password
   bigip_command:
