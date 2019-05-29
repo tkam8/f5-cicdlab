@@ -2,7 +2,7 @@
 
 service_name: "www_demo_f5demo_aws"
 partition: "demo"
-as3_template_name: "as3_https_basic_template"
+as3_template_name: "as3_https_waf_template"
 
 #######AS3 service definition########
 as3_template_file_name: "{{ as3_template_name + '.j2'}}"
