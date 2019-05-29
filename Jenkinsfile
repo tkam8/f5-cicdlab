@@ -7,14 +7,14 @@ pipeline {
     stages {
         stage('Init') {
             steps {
-                echo 'Initializing!!'
+                echo 'Initializing!!!'
             }
         }
         stage('Initializing terraform') {
             steps {
                 dir("terraform-ansible-aws/F5_Standalone_1Nic/terraform") {
                     echo 'Running Terraform init'
-                    echo "sh pwd"
+                    echo "WORKSPACE : ${workspace}"
                     echo "PATH : ${env.PATH}"
                     sh 'terraform init -input=false'
                 }
@@ -25,8 +25,8 @@ pipeline {
                 withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'awscreds', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
                     dir("terraform-ansible-aws/F5_Standalone_1Nic/terraform") {
                         echo 'Running Terraform apply'
-                     //   sh 'terraform apply -input=false -auto-approve'
-                        sh 'terraform destroy -force'
+                        sh 'terraform apply -input=false -auto-approve'
+                     //   sh 'terraform destroy -force'
                     }
                 }
             }
