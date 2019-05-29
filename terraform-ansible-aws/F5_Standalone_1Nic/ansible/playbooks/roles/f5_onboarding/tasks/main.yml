@@ -1,11 +1,12 @@
 ---
 #Allow time for instance to boot
 
-- name: Wait for BIG-IP to be ready, don't start checking for 60 seconds
+- name: Wait for BIG-IP to be ready, don't start checking for 90 seconds
   bigip_wait:
-    delay: 60
+    delay: 90
     provider:
-      server: "{{ inventory_hostname }}"      
+      server: "{{ inventory_hostname }}"
+      server_port: 8443
       ssh_keyfile: "{{ ansible_ssh_private_key_file }}"
       transport: cli
       user: admin
