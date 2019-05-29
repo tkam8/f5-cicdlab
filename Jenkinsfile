@@ -25,8 +25,8 @@ pipeline {
                 withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'awscreds', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
                     dir("terraform-ansible-aws/F5_Standalone_1Nic/terraform") {
                         echo 'Running Terraform apply'
-                        sh 'terraform apply -input=false -auto-approve'
-                     //   sh 'terraform destroy -force'
+                     //   sh 'terraform apply -input=false -auto-approve'
+                        sh 'terraform destroy -force'
                     }
                 }
             }
@@ -43,13 +43,13 @@ pipeline {
             }
         }
     }
-    post {
-        success {
-            slackSend (color: '#00FF00', message: "SUCCESS! _Grab a beer_: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
-        }
-        failure {
-            slackSend (color: '#FF0000', message: "FAILED! _Practice makes perfect_: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})") 
-        }
-    }
+//    post {
+//        success {
+//            slackSend (color: '#00FF00', message: "SUCCESS! _Grab a beer_: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+//        }
+//        failure {
+//            slackSend (color: '#FF0000', message: "FAILED! _Practice makes perfect_: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})") 
+//        }
+//    }
 }
 
