@@ -1,16 +1,31 @@
 ---
 #Allow time for instance to boot
+#seems to be an issue with bigip_wait, using bigip_command instead
+#- name: Wait for BIG-IP to be ready, don't start checking for 90 seconds
+#  bigip_wait:
+#    delay: 90
+#    provider:
+#      server: "{{ inventory_hostname }}"
+#      server_port: 8443
+#      ssh_keyfile: "{{ ansible_ssh_private_key_file }}"
+#      transport: cli
+#      user: admin
+#    validate_certs: no
+#  delegate_to: localhost
 
-- name: Wait for BIG-IP to be ready, don't start checking for 90 seconds
-  bigip_wait:
-    delay: 90
+- name: run show version and check to see if output contains BIG-IP
+  bigip_command:
+    commands: show sys version
+    wait_for: result[0] contains BIG-IP
     provider:
       server: "{{ inventory_hostname }}"
-      server_port: 8443
       ssh_keyfile: "{{ ansible_ssh_private_key_file }}"
       transport: cli
+      timeout: 900
       user: admin
     validate_certs: no
+    retries: 50
+  register: result
   delegate_to: localhost
 
 - name: Set BIG-IP admin password
