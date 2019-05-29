@@ -38,7 +38,7 @@ pipeline {
                     playbook: '/var/lib/jenkins/workspace/terry-pipeline1/terraform-ansible-aws/F5_Standalone_1Nic/ansible/playbooks/site.yml',
                     inventory: '/var/lib/jenkins/workspace/terry-pipeline1/terraform-ansible-aws/F5_Standalone_1Nic/ansible/playbooks/inventory/hosts',
                     vaultCredentialsId: 'ansiblevaultpasswd',
-                    extras: '-vv'
+                    extras: '-vvvv'
                 )
             }
         }
