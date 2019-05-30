@@ -14,7 +14,7 @@
 #  delegate_to: localhost
 
 - name: sleep for 360 seconds and continue with play
-  wait_for: timeout=10
+  wait_for: timeout=360
   delegate_to: localhost
 
 - name: run show version and check to see if output contains BIG-IP
@@ -62,7 +62,7 @@
 
 
 - name: sleep for 300 seconds and continue with play
-  wait_for: timeout=10
+  wait_for: timeout=300
   delegate_to: localhost
 
 - name: run show version and check to see if output contains BIG-IP
