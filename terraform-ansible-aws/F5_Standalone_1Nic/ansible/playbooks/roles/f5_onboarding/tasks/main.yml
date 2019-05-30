@@ -14,7 +14,22 @@
 #  delegate_to: localhost
 
 - name: sleep for 300 seconds and continue with play
-  wait_for: timeout=10
+  wait_for: timeout=300
+  delegate_to: localhost
+
+- name: run show version and check to see if output contains BIG-IP
+  bigip_command:
+    commands: show sys version
+    wait_for: result[0] contains BIG-IP
+    provider:
+      server: "{{ inventory_hostname }}"
+      ssh_keyfile: "{{ ansible_ssh_private_key_file }}"
+      transport: cli
+      timeout: 600
+      user: admin
+    validate_certs: no
+    retries: 50
+  register: result
   delegate_to: localhost
 
 - name: Provision ASM at "nominal" level
@@ -23,10 +38,10 @@
     level: nominal
     provider:
       server: "{{ inventory_hostname }}"
-      server_port: 8443
-      password: "{{ ADMIN_PASSWORD }}"
-#      ssh_keyfile: "{{ ansible_ssh_private_key_file }}"
-#      transport: cli
+#      server_port: 8443
+#      password: "{{ ADMIN_PASSWORD }}"
+       ssh_keyfile: "{{ ansible_ssh_private_key_file }}"
+       transport: cli
       user: admin
     validate_certs: no
   delegate_to: localhost
