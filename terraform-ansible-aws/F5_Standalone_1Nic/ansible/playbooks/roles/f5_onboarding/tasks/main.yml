@@ -40,8 +40,8 @@
       server: "{{ inventory_hostname }}"
 #      server_port: 8443
 #      password: "{{ ADMIN_PASSWORD }}"
-       ssh_keyfile: "{{ ansible_ssh_private_key_file }}"
-       transport: cli
+      ssh_keyfile: "{{ ansible_ssh_private_key_file }}"
+      transport: cli
       user: admin
     validate_certs: no
   delegate_to: localhost
